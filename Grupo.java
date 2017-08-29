@@ -3,6 +3,12 @@ public class Grupo
     private String nomMateria;
     private Estudiante[] estudiantes;
     
+    /**
+     * Captura los datos del grupo, numero de estudiantes y nombre del grupo.
+     * @param totalEstudiantes Es el valor del cupo de estudiantes para asignar al grupo.
+     * @param nomMateria Es una cadena con el nombre de la materia del grupo.
+     * Inicializa un arreglo estudiantes con los datos anteriores.
+     */
     public Grupo(int totalEstudiantes, String nomMateria)
     {
         estudiantes = new Estudiante[totalEstudiantes];
