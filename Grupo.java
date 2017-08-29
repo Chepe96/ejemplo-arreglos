@@ -29,28 +29,33 @@ public class Grupo
             return false;//el arreglo esta lleno
         }
         estudiantes[posDisponible] = unEstudiante;// inscribe al estudiante
-        /*for(int i=0;i<estudiantes.length;i++)
-        {
-            if(estudiantes[i] == null)
-            {
-                estudiantes[i] = unEstudiante;
-                break;
-            }
-        }*/
         return true;
     }
     
-    public void darBaja(int claveEstudiante)
+    /**
+     * Da de baja a un alumno del grupo mediante su clave.
+     * @param unEstudiante Es el objeto estudiante a dar de baja en el grupo.
+     * @return Regresa verdadero si el estudiante fue dado de baja o falso en
+     *          caso de que no se pudiera dar de baja.
+     */
+    public boolean darBaja(Estudiante unEstudiante)
     {
         //buscar estudiante con la clave dada y asignarle un null
-        for(int i=0;i<estudiantes.length;i++)
+        int existe = this.buscarEstudiante(unEstudiante.claveAlumno());
+        if(existe==-1)
+        {
+            return false;//el estudiante no esta inscrito
+        }
+        estudiantes[existe] = null;// inscribe al estudiante
+        return true;
+        /*for(int i=0;i<estudiantes.length;i++)
         {
             if(estudiantes[i].claveAlumno() == claveEstudiante)
             {
                 estudiantes[i] = null;
                 break;
             }
-        }
+        }*/
     }
     
     /**
@@ -62,7 +67,7 @@ public class Grupo
     {
         for(int i=0;i<estudiantes.length;i++)
         {
-            if(estudiantes[i].claveAlumno() == claveEstudiante)
+            if(estudiantes[i] != null && estudiantes[i].claveAlumno() == claveEstudiante)
             {
                 return i;
             }
@@ -85,4 +90,6 @@ public class Grupo
         }
         return -1;
     }
+    
+
 }
