@@ -97,5 +97,37 @@ public class Grupo
         return -1;
     }
     
+    /**
+     * Busca un estudiante por medio de su nombre.
+     * @param nomEstudiante Parametro que representa el nombre del estudiante a buscar.
+     * @return Regresa la posición del estudiante en el arreglo o -1 si no existe.
+     */
+    public int buscarEstudiante(String nomEstudiante)
+    {
+        for(int i=0;i<estudiantes.length;i++)
+        {
+            if(estudiantes[i] != null && estudiantes[i].nombreAlumno() == nomEstudiante)
+            {
+                return i;
+            }
+        }
+         return -1;
+    }
 
+     /**
+     * Busca un estudiante por medio de su clave.
+     * @param claveEstudiante Parametro que representa la clave del estudiante a buscar.
+     * @return Regresa la posición del estudiante en el arreglo o -1 si no existe.
+     */
+    public int buscarEstudianteApellido(String apEstudiante)
+    {
+        for(int i=0;i<estudiantes.length;i++)
+        {
+            if(estudiantes[i] != null && estudiantes[i].apellidoAlumno() == apEstudiante)
+            {
+                return i;
+            }
+        }
+         return -1;
+    }
 }
